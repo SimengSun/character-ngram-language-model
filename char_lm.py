@@ -36,10 +36,11 @@ def KN_smoothing(order):
     pkn_w = np.array([ len(lm_r[1][w]) for h in lm[1] for w in lm_r[1][h]])
     pkn_w = pkn_w / sum(pkn_w)
     ret = dict(zip([h for h in lm[1] for w in lm_r[1][h]], pkn_w))
-    o = 1
-    n1 = len([0 for h in lm[o] if sum(lm[o][h].values()) == 1])
-    n2 = len([0 for h in lm[o] if sum(lm[o][h].values()) == 2])
-    D = n1 / (n1 + 2 * n2 + .0)
+#     o = 1
+#     n1 = len([0 for h in lm[o] if sum(lm[o][h].values()) == 1])
+#     n2 = len([0 for h in lm[o] if sum(lm[o][h].values()) == 2])
+#     D = n1 / (n1 + 2 * n2 + .0)
+    D = 0.1
     ret["≈"] = D / len(pkn_w)
     # order 2 ~ n
     for o in range(1, order):
